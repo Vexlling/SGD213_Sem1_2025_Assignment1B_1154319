@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Rotate : MonoBehaviour
 {
+
     [SerializeField]
     private float maximumSpinSpeed = 200;
 

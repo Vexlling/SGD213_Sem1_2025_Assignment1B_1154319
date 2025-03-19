@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SpawnOverTimeScript : MonoBehaviour
+public class SpawnRateScript : MonoBehaviour
 {
 
     // Object to spawn
@@ -17,7 +17,6 @@ public class SpawnOverTimeScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
         ourRenderer = GetComponent<Renderer>();
 
         // Stop our Spawner from being visible!
@@ -31,6 +30,7 @@ public class SpawnOverTimeScript : MonoBehaviour
     void Spawn()
     {
         float x1 = transform.position.x - ourRenderer.bounds.size.x / 2;
+
         float x2 = transform.position.x + ourRenderer.bounds.size.x / 2;
 
         // Randomly pick a point within the spawn object
