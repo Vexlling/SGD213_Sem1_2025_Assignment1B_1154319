@@ -12,15 +12,15 @@ public class SpawnRateScript : MonoBehaviour
     [SerializeField]
     private float spawnDelay = 2f;
 
-    private Renderer ourRenderer;
+    private Renderer spawnRenderer;
 
     // Use this for initialization
     void Start()
     {
-        ourRenderer = GetComponent<Renderer>();
+        spawnRenderer = GetComponent<Renderer>();
 
         // Stop our Spawner from being visible!
-        ourRenderer.enabled = false;
+        spawnRenderer.enabled = false;
 
         // Call the given function after spawnDelay seconds, 
         // and then repeatedly call it after spawnDelay seconds.
@@ -29,9 +29,9 @@ public class SpawnRateScript : MonoBehaviour
 
     void Spawn()
     {
-        float x1 = transform.position.x - ourRenderer.bounds.size.x / 2;
+        float x1 = transform.position.x - spawnRenderer.bounds.size.x / 2;
 
-        float x2 = transform.position.x + ourRenderer.bounds.size.x / 2;
+        float x2 = transform.position.x + spawnRenderer.bounds.size.x / 2;
 
         // Randomly pick a point within the spawn object
         Vector2 spawnPoint = new Vector2(Random.Range(x1, x2), transform.position.y);

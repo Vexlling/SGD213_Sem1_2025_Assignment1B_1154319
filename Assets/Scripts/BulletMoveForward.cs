@@ -8,14 +8,14 @@ public class BulletMoveForward : MonoBehaviour
 
     private float initialVelocity = 5f;
 
-    private Rigidbody2D ourRigidbody;
+    private Rigidbody2D bulletRigidbody;
 
     // Use this for initialization
     void Start()
     {
-        ourRigidbody = GetComponent<Rigidbody2D>();
+        bulletRigidbody = GetComponent<Rigidbody2D>();
 
-        ourRigidbody.velocity = Vector2.up * initialVelocity;
+        bulletRigidbody.velocity = Vector2.up * initialVelocity;
     }
 
     // When called by MoveForwardConstantly Script 
@@ -23,6 +23,6 @@ public class BulletMoveForward : MonoBehaviour
     {
         Vector2 ForceToAdd = Vector2.up * acceleration * Time.deltaTime;
 
-        ourRigidbody.AddForce(ForceToAdd);
+        bulletRigidbody.AddForce(ForceToAdd);
     }
 }

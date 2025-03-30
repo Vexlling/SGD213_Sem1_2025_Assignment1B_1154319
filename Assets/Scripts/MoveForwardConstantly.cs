@@ -22,8 +22,16 @@ public class MoveForwardConstantly : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bulletMoveForward.BulletMovement();
-        
-        enemyMoveForward.EnemyMovement();
+
+        // Not the most effecient, but without the if statements Unity complains the GameObjects referenced have no definition
+        if (enemyMoveForward = null)
+        {
+            enemyMoveForward.EnemyMovement();
+        }
+
+        if (bulletMoveForward = null)
+        {
+            bulletMoveForward.BulletMovement();
+        }
     }
 }
