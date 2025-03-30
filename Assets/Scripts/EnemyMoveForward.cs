@@ -18,15 +18,7 @@ public class EnemyMoveForward : MonoBehaviour
         enemyRigidbody.velocity = Vector2.down * initialVelocity;
     }
 
-    // Update is called once per frame
-    /*void Update()
-    {
-        Vector2 ForceToAdd = Vector2.down * acceleration * Time.deltaTime;
-
-        enemyRigidbody.AddForce(ForceToAdd);
-    }*/
-
-    //
+    // When called by MoveForwardConstantly Script
     public void EnemyMovement()
     {
         Vector2 ForceToAdd = Vector2.down * acceleration * Time.deltaTime;

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class MoveForwardConstantly : MonoBehaviour
 {
+    // Script indicates how often to run certain functions from other scripts 
 
     // Create private ref to named scripts
     private EnemyMoveForward enemyMoveForward;
@@ -21,10 +22,8 @@ public class MoveForwardConstantly : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //
         bulletMoveForward.BulletMovement();
-
-        //
+        
         enemyMoveForward.EnemyMovement();
     }
 }

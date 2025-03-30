@@ -24,13 +24,13 @@ public class PlayerInput : MonoBehaviour
     {
         float HorizontalInput = Input.GetAxis("Horizontal");
 
-        //
+        // On input run function to move the player accordingly
         if (HorizontalInput != 0.0f)
         {
             playerMovementScript.HorizontalMovement(HorizontalInput);
         }
 
-        //
+        // On input run function to spawn a bullet or issue a warning
         if (Input.GetButton("Fire1"))
         {
             if (shootingScript != null)
