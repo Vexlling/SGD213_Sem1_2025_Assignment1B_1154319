@@ -19,7 +19,15 @@ public class BulletMoveForward : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+   /* void Update()
+    {
+        Vector2 ForceToAdd = Vector2.up * acceleration * Time.deltaTime;
+
+        ourRigidbody.AddForce(ForceToAdd);
+    }*/
+
+    //
+    public void BulletMovement()
     {
         Vector2 ForceToAdd = Vector2.up * acceleration * Time.deltaTime;
 

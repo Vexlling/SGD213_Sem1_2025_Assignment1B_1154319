@@ -4,10 +4,9 @@ using System.Collections;
 public class PlayerMovementScript : MonoBehaviour 
 {
 
-    // SerializeField exposes this value to the Editor, but not to other Scripts!
     // HorizontalPlayerAcceleration indicates how fast we accelerate Horizontally
-    //[SerializeField]
-    public float horizontalPlayerAcceleration = 5000f;
+    [SerializeField]
+    private float horizontalPlayerAcceleration = 5000f;
 
     private Rigidbody2D playerRigidbody;
 
