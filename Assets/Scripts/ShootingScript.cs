@@ -9,6 +9,7 @@ public class ShootingScript : MonoBehaviour
 
     private float lastFiredTime = 0f;
 
+
     [SerializeField]
     private float fireDelay = 1f;
 

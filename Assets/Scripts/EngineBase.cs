@@ -26,6 +26,7 @@ public class EngineBase : MonoBehaviour
     {
         //calculate our force to add
         Vector2 forceToAdd = direction * acceleration * Time.deltaTime;
+
         // apply forceToAdd to ourRigidbody
         ourRigidbody.AddForce(forceToAdd);
     }
