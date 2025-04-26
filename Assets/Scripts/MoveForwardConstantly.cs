@@ -6,7 +6,7 @@ public class MoveForwardConstantly : MonoBehaviour
     // Script indicates how often to run certain functions from other scripts 
 
     // Create private ref to named scripts
-    private EnemyMoveForward enemyMoveForward;
+    private EnemyMovement enemyMoveForward;
 
     private BulletMoveForward bulletMoveForward;
 
@@ -14,7 +14,7 @@ public class MoveForwardConstantly : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        enemyMoveForward = GetComponent<EnemyMoveForward>();
+        enemyMoveForward = GetComponent<EnemyMovement>();
 
         bulletMoveForward = GetComponent<BulletMoveForward>();
     }
@@ -24,10 +24,10 @@ public class MoveForwardConstantly : MonoBehaviour
     {
 
         // Not the most effecient, but without the if statements Unity complains the GameObjects referenced have no definition
-        if (enemyMoveForward = null)
+        /*if (enemyMoveForward = null)
         {
-            enemyMoveForward.EnemyMovement();
-        }
+            enemyMoveForward.MoveEnemy();
+        }*/
 
         if (bulletMoveForward = null)
         {

@@ -9,22 +9,32 @@ public class ShootingScript : MonoBehaviour
 
     private float lastFiredTime = 0f;
 
-
+  
     [SerializeField]
     private float fireDelay = 1f;
 
     private float bulletOffset = 2f;
 
+    //
+    //private WeaponBase weapon;
+    //
+
     void Start()
     {
-        // Do some math to perfectly spawn bullets in front of us
+        //Do some math to perfectly spawn bullets in front of us
         bulletOffset = GetComponent<Renderer>().bounds.size.y / 2 // Half of our size
         + bullet.GetComponent<Renderer>().bounds.size.y / 2; // Plus half of the bullet size
+
+        //
+        //weapon = GetComponent<WeaponBase>();
+        //
     }
 
-    public void FiringShots()
+   public void FiringShots()
     {
         float CurrentTime = Time.time;
+
+        Debug.Log("Got as far as FiringShots()");
 
         // Have a delay so we don't shoot too many bullets
         if (CurrentTime - lastFiredTime > fireDelay)
@@ -47,5 +57,4 @@ public class ShootingScript : MonoBehaviour
     {
         return number;
     }
-
 }

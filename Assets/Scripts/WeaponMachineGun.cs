@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WeaponMachineGun : WeaponBase 
 {
-
     /// <summary>
     /// Shoot will spawn a new bullet, provided enough time has passed compared to our fireDelay.
     /// </summary>

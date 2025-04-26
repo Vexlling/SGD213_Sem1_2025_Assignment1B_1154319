@@ -10,7 +10,9 @@ public class PlayerInput : MonoBehaviour
 {
 
     // local references
-    private PlayerMovement playerMovement;
+    private EngineBase playerMovement;
+
+    private ShootingScript shootingScript;
 
     private WeaponBase weapon;
     public WeaponBase Weapon
@@ -28,7 +30,8 @@ public class PlayerInput : MonoBehaviour
 
     void Start()
     {
-        playerMovement = GetComponent<PlayerMovement>();
+        playerMovement = GetComponent<EngineBase>();
+        shootingScript = GetComponent<ShootingScript>();
         weapon = GetComponent<WeaponBase>();
     }
 
@@ -36,6 +39,7 @@ public class PlayerInput : MonoBehaviour
     {
         // read our horizontal input axis
         float horizontalInput = Input.GetAxis("Horizontal");
+
         // if movement input is not zero
         if (horizontalInput != 0.0f)
         {
@@ -43,19 +47,25 @@ public class PlayerInput : MonoBehaviour
             if (playerMovement != null)
             {
                 // pass our movement input to our playerMovementScript
-                playerMovement.MovePlayer(horizontalInput * Vector2.right);
+                playerMovement.Accelerate(horizontalInput * Vector2.right);
             }
         }
 
         // if we press the Fire1 button
         if (Input.GetButton("Fire1"))
         {
+            Debug.Log("Fir1 button registered");
             // if our shootingScript is populated
-            if (weapon != null)
+            if (shootingScript != null)
             {
                 // tell shootingScript to shoot
-                weapon.Shoot();
+                shootingScript.FiringShots();
             }
+            else
+            {
+                Debug.Log("shooting script was registered as null");
+            }
+
         }
     }
 
@@ -73,6 +83,7 @@ public class PlayerInput : MonoBehaviour
             case WeaponType.machineGun:
                 newWeapon = gameObject.AddComponent<WeaponMachineGun>();
                 break;
+
             case WeaponType.tripleShot:
                 newWeapon = gameObject.AddComponent<WeaponTripleShot>();
                 break;
@@ -80,8 +91,10 @@ public class PlayerInput : MonoBehaviour
 
         // update the data of our newWeapon with that of our current weapon
         newWeapon.UpdateWeaponControls(weapon);
+
         // remove the old weapon
         Destroy(weapon);
+
         // set our current weapon to be the newWeapon
         weapon = newWeapon;
     }
