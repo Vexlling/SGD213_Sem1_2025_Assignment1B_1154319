@@ -36,6 +36,7 @@ public class PlayerInput : MonoBehaviour
     {
         // read our horizontal input axis
         float horizontalInput = Input.GetAxis("Horizontal");
+
         // if movement input is not zero
         if (horizontalInput != 0.0f)
         {
@@ -68,11 +69,13 @@ public class PlayerInput : MonoBehaviour
     {
         // make a new weapon dependent on the weaponType
         WeaponBase newWeapon = null;
+
         switch (weaponType)
         {
             case WeaponType.machineGun:
                 newWeapon = gameObject.AddComponent<WeaponMachineGun>();
                 break;
+
             case WeaponType.tripleShot:
                 newWeapon = gameObject.AddComponent<WeaponTripleShot>();
                 break;
@@ -80,8 +83,10 @@ public class PlayerInput : MonoBehaviour
 
         // update the data of our newWeapon with that of our current weapon
         newWeapon.UpdateWeaponControls(weapon);
+
         // remove the old weapon
         Destroy(weapon);
+
         // set our current weapon to be the newWeapon
         weapon = newWeapon;
     }

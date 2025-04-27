@@ -23,14 +23,22 @@ public class MoveConstantly : MonoBehaviour
     /// It is expected that when setting the direction, the provided Vector2 is a unit vector. If not,
     /// it will be automatically normalised.
     /// </summary>
-    public Vector2 Direction {
-        get {
+    public Vector2 Direction 
+    {
+        get 
+        {
             return direction;
         }
-        set {
-            if (value.magnitude == 1) {
+
+        set 
+        {
+            if (value.magnitude == 1) 
+            {
                 direction = value;
-            } else {
+            } 
+
+            else 
+            {
                 direction = value.normalized;
             }
         }
@@ -50,6 +58,7 @@ public class MoveConstantly : MonoBehaviour
     {
         // calculate our force to add, based on our provided direction, acceleration and delta time
         Vector2 forceToAdd = direction * acceleration * Time.deltaTime;
+
         // add our forceToAdd to ourRigidbody
         ourRigidbody.AddForce(forceToAdd);
     }
