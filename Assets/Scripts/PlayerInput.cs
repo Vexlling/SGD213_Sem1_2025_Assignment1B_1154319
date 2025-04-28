@@ -10,7 +10,7 @@ public class PlayerInput : MonoBehaviour
 {
 
     // local references
-    private EngineBase Movement;
+    private EngineBase movement;
 
     private WeaponBase weapon;
     public WeaponBase Weapon
@@ -28,7 +28,7 @@ public class PlayerInput : MonoBehaviour
 
     void Start()
     {
-        Movement = GetComponent<EngineBase>();
+        movement = GetComponent<EngineBase>();
         weapon = GetComponent<WeaponBase>();
     }
 
@@ -40,22 +40,27 @@ public class PlayerInput : MonoBehaviour
         // if movement input is not zero
         if (horizontalInput != 0.0f)
         {
-            // ensure our playerMovementScript is populated to avoid errors
-            if (Movement != null)
+            // check if EngineBase component is attached
+            if (movement != null)
             {
                 // pass our movement input to our EngineBase
-                Movement.Accelerate(horizontalInput * Vector2.right);
+                movement.Accelerate(horizontalInput * Vector2.right);
             }
         }
 
-        // if we press the Fire1 button
+        // if M1 is pressed
         if (Input.GetButton("Fire1"))
         {
-            // if our shootingScript is populated
+            // check if a weapon component is attached
             if (weapon != null)
             {
-                // tell shootingScript to shoot
+                // tell weapon component to shoot
                 weapon.Shoot();
+            }
+
+            else
+            {
+                Debug.Log("Weapon component not attached.");
             }
         }
     }
