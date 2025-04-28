@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EngineBase : MonoBehaviour
 {
-    // acceleration indicates how fast the enemy accelerates
+    // acceleration indicates how fast the object accelerates
     [SerializeField]
     private float acceleration = 5000f;
 
